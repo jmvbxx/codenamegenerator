@@ -6,6 +6,7 @@ import (
 	"math/rand"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
@@ -46,7 +47,7 @@ func main() {
 		words = append(words, s.Text())
 	})
 
-	// str := strings.Join(words, " ")
+	l := strings.ToLower(words[0])
 
-	fmt.Println(words[0])
+	fmt.Println(l)
 }
