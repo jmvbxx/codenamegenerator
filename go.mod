@@ -1,4 +1,4 @@
-module github.com/jmvbxx/go-name-generator
+module github.com/jmvbxx/gonamegenerator
 
 go 1.19
 
