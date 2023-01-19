@@ -1,4 +1,4 @@
-module github.com/jmvbxx/gonamegenerator
+module github.com/jmvbxx/codenamegenerator
 
 go 1.19
 

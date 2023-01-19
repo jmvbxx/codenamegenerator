@@ -1,4 +1,4 @@
-package gonamegenerator
+package codenamegenerator
 
 import (
 	"fmt"

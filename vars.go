@@ -1,4 +1,4 @@
-package gonamegenerator
+package codenamegenerator
 
 var (
 	CommonCodeNames = []string{"animals", "apple", "birds", "bugs", "dogs", "fishes",
