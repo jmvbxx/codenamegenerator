@@ -8,6 +8,7 @@ The output is as follows: `<string>-<string>-<string>`.
 ## Badges
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jmvbxx/codenamegenerator)](https://goreportcard.com/report/github.com/jmvbxx/codenamegenerator)
 
 ## Install
 
