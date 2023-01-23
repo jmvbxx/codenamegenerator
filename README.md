@@ -1,7 +1,7 @@
 # Code Name Generator
 
 A Go package to generate a three-word code name for multi-purpose use. The package relies on
-codenamegenerator.com for generation as opposed to lengthy slices within the package.
+[codenamegenerator.com](https://codenamegenerator.com) for generation as opposed to lengthy slices within the package.
 
 The output is as follows: `<string>-<string>-<string>`.
 
