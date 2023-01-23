@@ -15,13 +15,13 @@ import (
 func NameGenerate() {
 	s := rand.NewSource(time.Now().UTC().UnixNano())
 	r := rand.New(s)
+	u := "http://www.codenamegenerator.com"
 
 	r1 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
 	r2 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
 	r3 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
 
-	resp, err := http.PostForm("https://www.codenamegenerator.com/",
-		url.Values{"prefix": {r1}, "dictionary": {r2}, "suffix": {r3}})
+	resp, err := http.PostForm(u, url.Values{"prefix": {r1}, "dictionary": {r2}, "suffix": {r3}})
 
 	if err != nil {
 		log.Fatal(err)
