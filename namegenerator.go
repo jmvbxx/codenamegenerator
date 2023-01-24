@@ -2,6 +2,7 @@ package codenamegenerator
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"math/rand"
 	"net/http"
@@ -12,10 +13,10 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func NameGenerate() {
+func GetRawCodeName() io.ReadCloser {
 	s := rand.NewSource(time.Now().UTC().UnixNano())
 	r := rand.New(s)
-	u := "http://www.codenamegenerator.com"
+	u := "https://www.codenamegenerator.com"
 
 	r1 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
 	r2 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
@@ -29,7 +30,11 @@ func NameGenerate() {
 
 	defer resp.Body.Close()
 
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
+	return resp.Body
+}
+
+func NameGenerate(io.ReadCloser) string {
+	doc, err := goquery.NewDocumentFromReader(GetRawCodeName())
 
 	if err != nil {
 		log.Fatal(err)
@@ -45,5 +50,7 @@ func NameGenerate() {
 
 	split := strings.Split(l, "\n")
 
-	fmt.Printf("%s-%s-%s", split[0], split[1], split[2])
+	codename := fmt.Sprintf("%s-%s-%s", split[0], split[1], split[2])
+
+	return codename
 }
