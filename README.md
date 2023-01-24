@@ -27,10 +27,15 @@ go get -u github.com/jmvbxx/codenamegenerator
 ```go
 package main
 
-import "github.com/jmvbxx/codenamegenerator"
+import (
+	"fmt"
+
+	"github.com/jmvbxx/codenamegenerator"
+)
 
 func main() {
-	codenamegenerator.NameGenerate()
+	cn := codenamegenerator.NameGenerate()
+	fmt.Println(cn)
 }
 ```
 
