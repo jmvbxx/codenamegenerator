@@ -13,7 +13,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func GetRawCodeName() io.ReadCloser {
+func getRawCodeName() io.ReadCloser {
 	s := rand.NewSource(time.Now().UTC().UnixNano())
 	r := rand.New(s)
 	u := "https://www.codenamegenerator.com"
@@ -34,7 +34,7 @@ func GetRawCodeName() io.ReadCloser {
 }
 
 func NameGenerate(io.ReadCloser) string {
-	doc, err := goquery.NewDocumentFromReader(GetRawCodeName())
+	doc, err := goquery.NewDocumentFromReader(getRawCodeName())
 
 	if err != nil {
 		log.Fatal(err)
