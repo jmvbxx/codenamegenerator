@@ -13,26 +13,6 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func getRawCodeName() io.ReadCloser {
-	s := rand.NewSource(time.Now().UTC().UnixNano())
-	r := rand.New(s)
-	u := "https://www.codenamegenerator.com"
-
-	r1 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
-	r2 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
-	r3 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
-
-	resp, err := http.PostForm(u, url.Values{"prefix": {r1}, "dictionary": {r2}, "suffix": {r3}})
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	defer resp.Body.Close()
-
-	return resp.Body
-}
-
 func NameGenerate(io.ReadCloser) string {
 	doc, err := goquery.NewDocumentFromReader(getRawCodeName())
 
@@ -57,4 +37,24 @@ func NameGenerate(io.ReadCloser) string {
 	codename := fmt.Sprintf("%s-%s-%s", sp0, sp1, sp2)
 
 	return codename
+}
+
+func getRawCodeName() io.ReadCloser {
+	s := rand.NewSource(time.Now().UTC().UnixNano())
+	r := rand.New(s)
+	u := "https://www.codenamegenerator.com"
+
+	r1 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
+	r2 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
+	r3 := CommonCodeNames[r.Intn(len(CommonCodeNames))]
+
+	resp, err := http.PostForm(u, url.Values{"prefix": {r1}, "dictionary": {r2}, "suffix": {r3}})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer resp.Body.Close()
+
+	return resp.Body
 }
