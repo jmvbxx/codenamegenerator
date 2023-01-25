@@ -50,7 +50,11 @@ func NameGenerate(io.ReadCloser) string {
 
 	split := strings.Split(l, "\n")
 
-	codename := fmt.Sprintf("%s-%s-%s", split[0], split[1], split[2])
+	sp0 := getSingleWord(split[0])
+	sp1 := getSingleWord(split[1])
+	sp2 := getSingleWord(split[2])
+
+	codename := fmt.Sprintf("%s-%s-%s", sp0, sp1, sp2)
 
 	return codename
 }
