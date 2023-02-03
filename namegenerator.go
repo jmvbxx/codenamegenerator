@@ -13,6 +13,8 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
+// NameGenerate takes the resp.Body from getRawCodeName and outputs the string
+// in the desired format
 func NameGenerate(io.ReadCloser) string {
 	doc, err := goquery.NewDocumentFromReader(getRawCodeName())
 
@@ -39,6 +41,7 @@ func NameGenerate(io.ReadCloser) string {
 	return codename
 }
 
+// getRawCodeName queries the website for the raw resp.Body containing the codename
 func getRawCodeName() io.ReadCloser {
 	s := rand.NewSource(time.Now().UTC().UnixNano())
 	r := rand.New(s)
@@ -54,7 +57,7 @@ func getRawCodeName() io.ReadCloser {
 		log.Fatal(err)
 	}
 
-	defer resp.Body.Close()
+	// defer resp.Body.Close()
 
 	return resp.Body
 }
