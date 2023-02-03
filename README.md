@@ -9,6 +9,7 @@ The output is as follows: `<string>-<string>-<string>`.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Go Report Card](https://goreportcard.com/badge/github.com/jmvbxx/codenamegenerator)](https://goreportcard.com/report/github.com/jmvbxx/codenamegenerator)
+[![GoDoc](https://godoc.org/github.com/jmvbxx/codenamegenerator?status.svg)](http://godoc.org/github.com/jmvbxx/codenamegenerator)
 
 ## Install
 
