@@ -1,7 +1,6 @@
 package codenamegenerator
 
 import (
-	"fmt"
 	"io"
 	"log"
 	"math/rand"
@@ -11,9 +10,10 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/gobuffalo/flect"
 )
 
-func NameGenerate(io.ReadCloser) string {
+func NameGenerate() string {
 	doc, err := goquery.NewDocumentFromReader(getRawCodeName())
 
 	if err != nil {
@@ -28,15 +28,18 @@ func NameGenerate(io.ReadCloser) string {
 
 	l := strings.ToLower(words[0])
 
-	split := strings.Split(l, "\n")
+	// split := strings.Split(l, "\n")
 
-	sp0 := getSingleWord(split[0])
-	sp1 := getSingleWord(split[1])
-	sp2 := getSingleWord(split[2])
+	// sp0 := getSingleWord(split[0])
+	// sp1 := getSingleWord(split[1])
+	// sp2 := getSingleWord(split[2])
 
-	codename := fmt.Sprintf("%s-%s-%s", sp0, sp1, sp2)
+	// codename := fmt.Sprintf("%s-%s-%s", sp0, sp1, sp2)
+
+	codename := flect.Dasherize(l)
 
 	return codename
+
 }
 
 func getRawCodeName() io.ReadCloser {
