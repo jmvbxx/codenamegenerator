@@ -57,7 +57,7 @@ func getRawCodeName() io.ReadCloser {
 		log.Fatal(err)
 	}
 
-	defer resp.Body.Close()
+	// defer resp.Body.Close()
 
 	return resp.Body
 }
