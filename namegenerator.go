@@ -28,17 +28,13 @@ func NameGenerate() string {
 
 	l := strings.ToLower(words[0])
 
-	// split := strings.Split(l, "\n")
+	cn := flect.Dasherize(l)
 
-	// sp0 := getSingleWord(split[0])
-	// sp1 := getSingleWord(split[1])
-	// sp2 := getSingleWord(split[2])
+	cn_array := strings.Split(cn, "-")
+	cn_array = cn_array[:3]
+	cn = strings.Join(cn_array, "-")
 
-	// codename := fmt.Sprintf("%s-%s-%s", sp0, sp1, sp2)
-
-	codename := flect.Dasherize(l)
-
-	return codename
+	return cn
 
 }
 
