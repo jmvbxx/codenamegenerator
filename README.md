@@ -29,12 +29,16 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/jmvbxx/codenamegenerator"
 )
 
 func main() {
-	cn := codenamegenerator.NameGenerate()
+	cn, err := codenamegenerator.NameGenerate()
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(cn)
 }
 ```
